@@ -17,24 +17,24 @@ const form = useForm({
     phone: props.creditor.phone,
     address: props.creditor.address,
     credit_limit: props.creditor.credit_limit,
-}) 
+})
 
 const submit = () => {
-    
+
     console.log(form); // Log the form data before submitting
     form.submit('put', '/creditors/' + props.creditor.id, {
         onSuccess: () => {
             showEdit.value = false;
         }
     });
-}   
+}
 </script>
 
 <template>
    <Head title="Creditors"/>
    <HeaderBar />
     <div class="p-8 mx-auto max-w-xl">
-        
+
         <h1 class="text-4xl mb-10">Property Details</h1>
         <div class="border-8 rounded-3xl shadow rounded">
             <table v-if="!showEdit" class="w-full border-collapse border-8">
@@ -99,7 +99,8 @@ const submit = () => {
                     <div class="mb-3">
                         <label for="credit_limit">Credit Limit</label>
                         <input type="number" id="credit_limit" class="w-full" v-model="form.credit_limit">
-                    </div>                    
+                    </div>
+                    <button type="submit" class="text-xl p-2.5 hover:text-green-600">Save</button>
                 </form>
                 </div>
                 <div class="flex justify-between m-5">
@@ -108,7 +109,7 @@ const submit = () => {
                         <path stroke-linecap="round" stroke-linejoin="round" d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3" />
                         </svg>
                     </Link>
-                    <button class="p-2.5 px-20 text-white bg-blue-800 rounded hover:bg-blue-600 " 
+                    <button class="p-2.5 px-20 text-white bg-blue-800 rounded hover:bg-blue-600 "
                     @click="showEdit = !showEdit"> {{ showEdit ? 'Cancel' : 'Edit'}}
                     </button>
                 </div>

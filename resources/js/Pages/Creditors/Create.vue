@@ -13,11 +13,11 @@ const form = useForm({
 
 const submit = async () => {
     form.submit('post', '/creditors')
-}  
+}
 </script>
 
 <template>
-  <div class="p-3 bg-gradient-to-r from-green-500 to-blue-600 justify-center h-screen">
+  <div class="p-3 bg-gradient-to-r from-green-500 to-blue-600 justify-center h-full">
     <div class="flex">
         <Link :href="'/creditors'" class="text-white rounded hover:text-green-600">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10">
@@ -101,8 +101,7 @@ const submit = async () => {
                     <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Z" />
                     </svg>
                 </div>
-            <input type="number" name="credit_limit" id="credit_limit" v-model="form.credit_limit" class="text-gray-900 text- rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:focus:ring-blue-500 dark:focus:border-blue-500">
-            </div>
+                <input type="number" name="credit_limit" id="credit_limit" v-model="form.credit_limit" oninput="this.value = Math.max(0, this.value.replace(/\D/g, ''))" class="text-gray-900 text- rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:focus:ring-blue-500 dark:focus:border-blue-500">                </div>
         </div>
         <button type="submit" class="col-span-2 w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text- px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Create</button>
         </form>
