@@ -21,8 +21,7 @@ class CreditorController extends Controller
     }
 
     public function show(Creditor $creditor) {
-        // sleep(3);
-        return inertia('Creditors/Show', [
+        return Inertia::render('Creditors/Show', [
             'creditor' => $creditor]);
     }
 
